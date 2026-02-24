@@ -1,6 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
+@Index('IDX_POST_TITLE', ['title'])
+@Index('IDX_POST_AUTHOR_ID', ['authorId'])
+@Index('IDX_POST_TITLE_AUTHOR_ID', ['title', 'authorId'])
 export class Post {
     @PrimaryGeneratedColumn({
         type: 'int',
