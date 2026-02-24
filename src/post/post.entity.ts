@@ -1,6 +1,12 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    Index,
+    PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity()
+@Entity('posts')
 @Index('IDX_POST_TITLE', ['title'])
 @Index('IDX_POST_AUTHOR_ID', ['authorId'])
 @Index('IDX_POST_TITLE_AUTHOR_ID', ['title', 'authorId'])
@@ -29,4 +35,12 @@ export class Post {
         nullable: false,
     })
     authorId: number;
+
+    @CreateDateColumn({
+        type: 'timestamp',
+        name: 'created_at',
+        nullable: false,
+        default: () => 'CURRENT_TIMESTAMP',
+    })
+    createdAt: Date;
 }
