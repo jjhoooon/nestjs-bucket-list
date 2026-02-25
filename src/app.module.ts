@@ -4,7 +4,8 @@ import { AppService } from './app.service';
 import { PostModule } from './post/post.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UserModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import typeorm from './config/typeorm';
 
 @Module({
@@ -19,7 +20,8 @@ import typeorm from './config/typeorm';
                 configService.getOrThrow('typeorm'),
         }),
         PostModule,
-        UserModule,
+        UsersModule,
+        AuthModule,
     ],
     controllers: [AppController],
     providers: [AppService],
