@@ -34,5 +34,5 @@ export class User {
         length: 255,
         nullable: true,
     })
-    refreshToken?: string;
+    refreshToken?: string | null;
 }

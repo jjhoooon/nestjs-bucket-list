@@ -2,7 +2,7 @@ import { PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user-dto';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
-    refreshToken: string;
+    refreshToken?: string | null;
 }
 
 // PartialType은 주어진 클래스의 모든 속성을 선택적으로 만드는 데 사용됩니다.
